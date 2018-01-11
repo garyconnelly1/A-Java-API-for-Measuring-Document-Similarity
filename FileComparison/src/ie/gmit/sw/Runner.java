@@ -6,19 +6,35 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
+/*
+ * Runner class contains the main method and is responsible for starting off the worker threads.
+ */
 public class Runner {
 	private static Scanner scanner = new Scanner(System.in);
 	private static File file, file2;
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		/*
+		 * set number of minhashes to 200, and the shingle size to 4.
+		 */
 		int numberOfHashes = 200;
 		int shingleSize = 4;
 		
 		readFiles();
+		/*
+		 * ExecutorService allows us to creat a threadPool. Was unaware of this function
+		 * prior to doing this project but learned about it 
+		 * here -  https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
+		 */
 		
-		// https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
 		ExecutorService service = Executors.newCachedThreadPool();
-		// https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html
+		/*
+		 * Future<Document> allows us to create an instance of the worker thread.
+		 * Submits a value-returning task for execution and returns a Future
+		 *  representing the pending results of the task. 
+		 *  More about the Future and submit methods can be learned here
+		 *  https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html
+		 */
+	 
 		Future<Document> doc1 = service.submit(new Worker(1, file, shingleSize));
 		Future<Document> doc2 = service.submit(new Worker(2, file2, shingleSize));
 
@@ -29,6 +45,12 @@ public class Runner {
 		scanner.close();
 	}
 
+	/*
+	 * Void method to read the files. 
+	 * Can also validate if the document exists in the system. 
+	 * Uses the global variable scanner to read each document and save the, as file and file2.
+	 * Will only use the documents if they already exist in the system.
+	 */
 	private static void readFiles() {
 		boolean validFileNames = true;
 		do {
