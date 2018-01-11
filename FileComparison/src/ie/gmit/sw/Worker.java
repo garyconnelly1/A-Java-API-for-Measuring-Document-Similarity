@@ -39,6 +39,7 @@ public class Worker implements Callable<Document> {
 		Document document = new Document(docId, map);
 		return document;
 	}
+	//for uml http://www.objectaid.com/installation
 
 }
 
