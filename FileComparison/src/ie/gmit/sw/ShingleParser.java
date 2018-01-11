@@ -65,6 +65,7 @@ public class ShingleParser {
 	 * Creates a BufferedReader object with the input stream as a parameter.
 	 * Split the lines at the space.
 	 * Adds the words and index [i] to the buffer and returns the buffer.
+	 * {@author Gary Connelly}
 	 */
 	
 	private List<String> parseWords(InputStream stream) throws IOException {
