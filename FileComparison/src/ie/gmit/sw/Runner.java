@@ -50,6 +50,7 @@ public class Runner {
 	 * Can also validate if the document exists in the system. 
 	 * Uses the global variable scanner to read each document and save the, as file and file2.
 	 * Will only use the documents if they already exist in the system.
+	 * {@author Gary Connelly}
 	 */
 	private static void readFiles() {
 		boolean validFileNames = true;
