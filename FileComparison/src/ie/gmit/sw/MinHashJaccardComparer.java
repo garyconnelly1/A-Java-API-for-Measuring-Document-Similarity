@@ -46,6 +46,7 @@ public class MinHashJaccardComparer {
 	 * Adding the minHash to a set called shingles.
 	 * final set of minHashes to be compared for the minHashes of the other document
 	 * Return that set of minHashes.
+	 * {@author Gary Connelly}
 	 */
 
 	//method to calculate the minHash of a document
