@@ -22,6 +22,7 @@ public class Document {
 
 	/*
 	 * Simple getter methods with a toString method for formatting.
+	 * {@author Gary Connelly}
 	 */
 	public int getId() {
 		return id;
